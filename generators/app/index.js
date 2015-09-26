@@ -25,7 +25,10 @@ module.exports = yeoman.generators.Base.extend({
 		var homeDir; 
 		var osUserName; 
 		var configFile;
-		var user = {};
+		var user = {
+			name: 'Christopher EnyTC',
+			email: 'chrisenytc@gmail.com'
+		};
 
 		if (process.platform === 'win32') {
 			homeDir = process.env.USERPROFILE;
