@@ -50,7 +50,7 @@ module.exports = yeoman.generators.Base.extend({
 
 	var defaults = {
 		pkgName: workingDirName,
-		userName: format(user.name || osUserName || ''),
+		userName: format(osUserName || ''),
 		authorName: user.name || '',
 		authorEmail: user.email || ''
 	};
