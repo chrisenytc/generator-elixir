@@ -17,15 +17,9 @@ module.exports = yeoman.generators.Base.extend({
       'Welcome to the ' + chalk.red('Elixir') + ' generator!'
     ));
 
-	function format(string) {
-		var username = string.toLowerCase();
-		return username.replace(/\s/g, '');
-	}
-
 	var homeDir; 
 	var osUserName; 
 	var configFile;
-	var user;
 	var workingDirName = path.basename(process.cwd());
 
 	if (process.platform === 'win32') {
@@ -37,22 +31,11 @@ module.exports = yeoman.generators.Base.extend({
 		osUserName = homeDir && homeDir.split('/').pop() || 'root';
 	}
 
-	configFile = path.join(homeDir, '.gitconfig');
-
-	if (fs.existsSync(configFile)) {
-		user = parser.parseSync(configFile).user;
-	} else {
-		user = {
-			name: 'Chris EnyTC',
-			email: 'chrisenytc@gmail.com'
-		};
-	}
-
 	var defaults = {
 		pkgName: workingDirName,
-		userName: format(osUserName || ''),
-		authorName: user.name || '',
-		authorEmail: user.email || ''
+		userName: 'chrisenytc',
+		authorName: 'Christopher EnyTC',
+		authorEmail: 'chrisenytc@gmail.com'
 	};
 
     var prompts = [{
