@@ -20,38 +20,36 @@ module.exports = yeoman.generators.Base.extend({
 		return username.replace(/\s/g, '');
 	}
 
-	var defaults = (function () {
-		var workingDirName = path.basename(process.cwd()); 
-		var homeDir; 
-		var osUserName; 
-		var configFile;
-		var user = {
-			name: 'Christopher EnyTC',
-			email: 'chrisenytc@gmail.com'
-		};
+	var homeDir; 
+	var osUserName; 
+	var configFile;
+	var user = {
+		name: 'Christopher EnyTC',
+		email: 'chrisenytc@gmail.com'
+	};
+	var workingDirName = path.basename(process.cwd());
 
-		if (process.platform === 'win32') {
-			homeDir = process.env.USERPROFILE;
-			osUserName = process.env.USERNAME || path.basename(homeDir).toLowerCase();
-		}
-		else {
-			homeDir = process.env.HOME || process.env.HOMEPATH;
-			osUserName = homeDir && homeDir.split('/').pop() || 'root';
-		}
+	if (process.platform === 'win32') {
+		homeDir = process.env.USERPROFILE;
+		osUserName = process.env.USERNAME || path.basename(homeDir).toLowerCase();
+	}
+	else {
+		homeDir = process.env.HOME || process.env.HOMEPATH;
+		osUserName = homeDir && homeDir.split('/').pop() || 'root';
+	}
 
-		configFile = path.join(homeDir, '.gitconfig');
+	configFile = path.join(homeDir, '.gitconfig');
 
-		if (require('fs').existsSync(configFile)) {
-			user = require('iniparser').parseSync(configFile).user;
-		}
+	if (require('fs').existsSync(configFile)) {
+		user = require('iniparser').parseSync(configFile).user;
+	}
 
-		return {
-			pkgName: workingDirName,
-			userName: format(user.name || osUserName || ''),
-			authorName: user.name || '',
-			authorEmail: user.email || ''
-		};
-	})();
+	var defaults = {
+		pkgName: workingDirName,
+		userName: format(user.name || osUserName || ''),
+		authorName: user.name || '',
+		authorEmail: user.email || ''
+	};
 
     var prompts = [{
         name: 'pkgName',
