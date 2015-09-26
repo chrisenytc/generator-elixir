@@ -2,6 +2,8 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var fs = require('fs');
+var parser = require('iniparser');
 var path = require('path');
 var _ = require('lodash');
 var _s = require('underscore.string');
@@ -23,10 +25,7 @@ module.exports = yeoman.generators.Base.extend({
 	var homeDir; 
 	var osUserName; 
 	var configFile;
-	var user = {
-		name: 'Christopher EnyTC',
-		email: 'chrisenytc@gmail.com'
-	};
+	var user;
 	var workingDirName = path.basename(process.cwd());
 
 	if (process.platform === 'win32') {
@@ -40,8 +39,13 @@ module.exports = yeoman.generators.Base.extend({
 
 	configFile = path.join(homeDir, '.gitconfig');
 
-	if (require('fs').existsSync(configFile)) {
-		user = require('iniparser').parseSync(configFile).user;
+	if (fs.existsSync(configFile)) {
+		user = parser.parseSync(configFile).user;
+	} else {
+		user = {
+			name: 'Chris EnyTC',
+			email: 'chrisenytc@gmail.com'
+		};
 	}
 
 	var defaults = {
