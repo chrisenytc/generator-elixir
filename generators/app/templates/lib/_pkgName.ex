@@ -1,4 +1,3 @@
-
 defmodule <%= pkgCapitalizedName %> do
 
   @moduledoc """
