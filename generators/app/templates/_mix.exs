@@ -28,7 +28,7 @@ defmodule <%= pkgCapitalizedName %>.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:logger]]
+    []
   end
 
   # Dependencies can be Hex packages:
@@ -45,7 +45,7 @@ defmodule <%= pkgCapitalizedName %>.Mixfile do
   end
 
   defp package do
-    [ contributors: ["<%= authorName %>"],
+    [ maintainers: ["<%= authorName %>"],
       licenses: ["<%= license %>"],
       links: %{"Github" => @repo} ]
   end
