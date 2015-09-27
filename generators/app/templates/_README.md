@@ -1,6 +1,6 @@
 # <%= pkgCapitalizedName %> [![Build Status](https://travis-ci.org/<%= userName %>/<%= pkgSlugName %>.svg?branch=master)](https://travis-ci.org/<%= userName %>/<%= pkgSlugName %>) [![Hex pm](http://img.shields.io/hexpm/v/<%= pkgSlugName %>.svg?style=flat)](https://hex.pm/packages/<%= pkgSlugName %>) [![hex.pm downloads](https://img.shields.io/hexpm/dt/<%= pkgSlugName %>.svg?style=flat)](https://hex.pm/packages/<%= pkgSlugName %>)
 
-> A example of a Elixir package
+> <%= pkgDescription %>
 
 ## Getting Started
 
